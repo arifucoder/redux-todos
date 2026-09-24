@@ -1,7 +1,7 @@
 import type { RootState } from "@/redux/store";
 import { createSlice } from "@reduxjs/toolkit";
 
-interface ITask {
+export interface ITask {
 	id: string;
 	title: string;
 	description: string;
@@ -24,6 +24,14 @@ const initialState: IInitialState = {
 			dueDate: "2026-11-26",
 			isCompleted: false,
 			priority: "High",
+		},
+		{
+			id: "dasdasadsds",
+			title: "create note on py",
+			description: "create python note and work on it",
+			dueDate: "2026-11-26",
+			isCompleted: false,
+			priority: "Medium",
 		},
 	],
 	filter: "all",
