@@ -1,41 +1,27 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@base-ui/react/button";
-import { ChevronRightIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 
-function TaskCard() {
-	const featureName = "Scheduled reports";
+import { Trash2 } from "lucide-react";
+
+export default function TaskCard() {
 	return (
-		<Card size="sm" className="mx-auto w-full max-w-xs">
-			<CardHeader>
-				<CardTitle>{featureName}</CardTitle>
-				<CardDescription>Weekly snapshots. No more manual exports.</CardDescription>
-			</CardHeader>
-			<CardContent>
-				<ul className="grid gap-2 py-2 text-sm">
-					<li className="flex gap-2">
-						<ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-						<span>Choose a schedule (daily, or weekly).</span>
-					</li>
-					<li className="flex gap-2">
-						<ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-						<span>Send to channels or specific teammates.</span>
-					</li>
-					<li className="flex gap-2">
-						<ChevronRightIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-						<span>Include charts, tables, and key metrics.</span>
-					</li>
-				</ul>
-			</CardContent>
-			<CardFooter className="flex-col gap-2">
-				<Button size="sm" className="w-full">
-					Set up scheduled reports
-				</Button>
-				<Button variant="outline" size="sm" className="w-full">
-					See what&apos;s new
-				</Button>
-			</CardFooter>
-		</Card>
+		<div className="border px-5 py-3 rounded-md">
+			<div className="flex justify-between items-center">
+				<div className="flex gap-2 items-center">
+					<div className="size-3 rounded-full bg-green-500"></div>
+					<h1>Task Title</h1>
+				</div>
+
+				<div className="flex gap-3 items-center">
+					<Button variant="link" className="p-0 text-red-500">
+						<Trash2 />
+					</Button>
+
+					<Checkbox />
+				</div>
+			</div>
+
+			<p className="mt-5">Task Description</p>
+		</div>
 	);
 }
-
-export default TaskCard;
