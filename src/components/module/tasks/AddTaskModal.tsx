@@ -12,17 +12,19 @@ import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field
 import { Input } from "@/components/ui/input";
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea } from "@/components/ui/input-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Controller, useForm } from "react-hook-form";
+import { addTask, type ITask } from "@/redux/features/task/taskSlice";
+import { useAppDispatch } from "@/redux/hook";
+import { Controller, useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 
-type TaskFormValues = {
-	title: string;
-	description: string;
-	dueDate: string;
-	priority: "High" | "Medium" | "Low";
-};
+// type TaskFormValues = {
+// 	title: string;
+// 	description: string;
+// 	dueDate: string;
+// 	priority: "High" | "Medium" | "Low";
+// };
 
 export function AddTaskModal() {
-	const form = useForm<TaskFormValues>({
+	const form = useForm<ITask>({
 		defaultValues: {
 			title: "",
 			description: "",
@@ -31,8 +33,9 @@ export function AddTaskModal() {
 		},
 	});
 
-	const onSubmit = (data: TaskFormValues) => {
-		console.log(data);
+	const dispatch = useAppDispatch();
+	const onSubmit: SubmitHandler<FieldValues> = (data) => {
+		dispatch(addTask(data as ITask));
 	};
 
 	return (
