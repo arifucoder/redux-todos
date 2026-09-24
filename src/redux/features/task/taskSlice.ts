@@ -20,7 +20,7 @@ const initialState: IInitialState = {
 	tasks: [
 		{
 			id: "rte3HSCAwfZFOTnfHcKFl",
-			isCompleted: false,
+			isCompleted: true,
 			title: "Quibusdam dolor ut a",
 			description: "Veniam enim consequ",
 			dueDate: "1978-04-21",
@@ -66,6 +66,9 @@ const taskSlice = createSlice({
 			console.log(action);
 			state.tasks.forEach((task) => (task.id === action.payload ? (task.isCompleted = !task.isCompleted) : task));
 		},
+		deleteTask: (state, action: PayloadAction<string>) => {
+			state.tasks = state.tasks.filter((task) => task.id !== action.payload);
+		},
 	},
 });
 
@@ -76,5 +79,5 @@ export const selectFilter = (state: RootState) => {
 	return state.todo.filter;
 };
 
-export const { addTask, toggleCompleteState } = taskSlice.actions;
+export const { addTask, toggleCompleteState, deleteTask } = taskSlice.actions;
 export default taskSlice.reducer;
