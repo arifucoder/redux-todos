@@ -29,7 +29,7 @@ export function AddTaskModal() {
 			title: "",
 			description: "",
 			dueDate: "",
-			priority: "Medium",
+			priority: "medium",
 		},
 	});
 
@@ -117,9 +117,9 @@ export function AddTaskModal() {
 											<SelectValue />
 										</SelectTrigger>
 										<SelectContent>
-											<SelectItem value="High">High</SelectItem>
-											<SelectItem value="Medium">Medium</SelectItem>
-											<SelectItem value="Low">Low</SelectItem>
+											<SelectItem value="high">High</SelectItem>
+											<SelectItem value="medium">Medium</SelectItem>
+											<SelectItem value="low">Low</SelectItem>
 										</SelectContent>
 									</Select>
 								</Field>
